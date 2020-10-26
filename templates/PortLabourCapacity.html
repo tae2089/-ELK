@@ -1,0 +1,156 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width" ,initial-scale="1">
+
+<link rel="stylesheet" href="./static/css/bootstrap.css">
+<link rel="stylesheet" href="./static/css/custom.css">
+<title>SEA-REAL</title>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"aria-expanded="false">
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">SEA-REAL</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <!-- /test1 -->
+                    <a href="/test1"  aria-haspopup="true" Saria-expanded="false">실시간 선박 입출항
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li >
+                    <!-- /test2 -->
+                    <a href="/test2"  aria-haspopup="true" Saria-expanded="false">실시간 부두 상황
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">부두 능력 평가
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="/test4">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test5">접안능력 평가</a></li> -->
+                        <li><a href="/test3">하역 능력 평가</a></li>
+                        <li><a href="/test4">접안 능력 평가</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <!-- /test5 -->
+                    <a href="/test5"  aria-haspopup="true" Saria-expanded="false">주요 품목 물동량 예측
+                        <span class="caret"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/bootstrap.js"></script>
+<div class="container">
+        <div class="row">
+            <div class="col-md-15">
+                <div class="jumbotron">
+                    <div class="container2">
+                        <b><h3>군집분석 결과 시각화 및 통계치</h3></b>
+                    </div>
+                        
+                    <div class="table_div">
+                        <div class="chart" id="bargraph" >
+                            <script>
+                                var graphs = {{plot|safe}};
+                                Plotly.plot('bargraph',graphs,{});
+                            </script>
+                        </div>
+                        <div class = "tes1" id = "tes2">
+                            <table class="table">
+                                <tr>
+                                    <th><br>Cluster</th>
+                                    <th>Number of vessel used/Space Capacity</th>
+                                    <th>Long wait vessel Ratio</th>
+                                    <th>Average berth Time</th>
+                                </tr>
+                                <!-- 이 부분에 데이터 for문 돌리기 -->
+                                <!-- 이 부분에 데이터 for문 돌리기 -->
+                                    {% for values in df %}
+                                <tr>
+                                <td>{{ values['number']+1}}</td>
+                                <td>{{ values['Number of vessel used/Space Capacity']}}</td>
+                                <td>{{ values['Long wait vessel Ratio']}}</td>
+                                <td>{{ values['Average berth Time'] }}</td>
+                                </tr>
+                                    {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div class="container"></div>
+                    <h5>
+                        사용변수: 1. '2019년 부두별 선박 이용수/부두 별 접안능력척수<br>
+                        &emsp;&emsp;&emsp;&nbsp; 2. '2019년 부두 별 체선 선박수/(2019년 부두 별 선박
+                        이용수/부두 별 접안능력척수)'<br> &emsp; &emsp;&emsp; 3. '2019년 부두 별 평균
+                        접안시간'
+                    </h5>
+                    <br> 
+                    <div>
+                        <div class= "div_t">
+                            <span class="header_group_name">군집1: 체선 선박 비율이 높은 부두</span>
+                            <span>
+                                <div class="test_header">Port_dockname</div>
+                                    {% for values in c1 %}
+                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                    {% endfor %}
+                            </span>
+                        </div>
+                        <div class="div_t">
+                            <span class="header_group_name">군집2: 체선선박 비율, 접안능력 대비 선박이용률, 평균 접안시간이 모두 낮은 부두</span>
+                            
+                            <span>
+                                <div class="test_header">Port_dockname</div>
+                                    {% for values in c2 %}
+                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                    {% endfor %}
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class= "div_t">
+                            <span class="header_group_name">군집3: 평균 접안시간이 긴 부두</span>
+                            <span>
+                                <div class="test_header">Port_dockname</div>
+                                    {% for values in c3 %}
+                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                    {% endfor %}
+                            </span>
+                        </div>
+                        <div class="div_t">
+                            <span class="header_group_name">군집4: 접안능력 대비 선박 이용률이 높은 부두</span>
+                            <span>
+                                <div class="test_header">Port_dockname</div>
+                                    {% for values in c4 %}
+                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                    {% endfor %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

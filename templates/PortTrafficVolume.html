@@ -1,0 +1,171 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width" ,initial-scale="1">
+
+<link rel="stylesheet" href="./static/css/bootstrap.css">
+<link rel="stylesheet" href="./static/css/custom.css">
+<title>SEA-REAL</title>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"aria-expanded="false">
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">SEA-REAL</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <!-- /test1 -->
+                    <a href="/test1"  aria-haspopup="true" Saria-expanded="false">실시간 선박 입출항
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li >
+                    <!-- /test2 -->
+                    <a href="/test2"  aria-haspopup="true" Saria-expanded="false">실시간 부두 상황
+                        <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">부두 능력 평가
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="/test4">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test5">접안능력 평가</a></li> -->
+                        <li><a href="/test3">하역 능력 평가</a></li>
+                        <li><a href="/test4">접안 능력 평가</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <!-- /test5 -->
+                    <a href="/test5"  aria-haspopup="true" Saria-expanded="false">주요 품목 물동량 예측
+                        <span class="caret"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row"></div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="./static/js/bootstrap.js"></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-15">
+                <div class="jumbotron">
+                    <div class="container2">
+                        <b><h4>유류</h4></b>
+                        <p></p>
+                    </div>
+                    <div class="table_div3">
+                        <div class="chart" id="bargraph1" >
+                            <script>
+                                var graphs = {{plot1|safe}};
+                                Plotly.plot('bargraph1',graphs,{});
+                            </script>
+                        </div>
+                        
+                            <table class="table">
+                            <caption>2020 하반기 '유류' 예측결과(신뢰구간 90%)</caption>
+                            <tr>
+                                <th>년도-월</th>
+                                <th>예측값 신뢰하한</th>
+                                <th>예측값</th>
+                                <th>예측값 신뢰상한</th>
+                            </tr>
+                                {% for table in df1 %}
+
+                            <tr>
+                            <td>{{ table['ds'] }}</td>
+                            <td>{{ table['yhat_lower']}}</td>
+                            <td>{{ table['yhat']}}</td>
+                            <td>{{ table['yhat_upper'] }}</td>
+                            </tr>
+                                            
+                                {% endfor %}
+                        </table>
+                    </div>                    
+                    <div class="container">
+                        <br><br>
+                        <b><h4>화학공업제품</h4></b>
+                        <br>
+                    </div>
+                        <div class="table_div3">
+                        <div class="chart" id="bargraph2" >
+                            <script>
+                                var graphs = {{plot2|safe}};
+                                Plotly.plot('bargraph2',graphs,{});
+                            </script>
+                        </div>
+                        <table class="table">
+                            <caption>2020 하반기 '화학공업제품' 예측결과(신뢰구간 90%)</caption>
+                            <tr>
+                            <th>년도-월</th>
+                            <th>예측값 신뢰하한</th>
+                            <th>예측값</th>
+                            <th>예측값 신뢰상한</th>
+                            </tr>
+                                {% for table in df2 %}
+
+                            <tr>
+                            <td>{{ table['ds'] }}</td>
+                            <td>{{ table['yhat_lower']}}</td>
+                            <td>{{ table['yhat']}}</td>
+                            <td>{{ table['yhat_upper'] }}</td>
+                            </tr>
+                                            
+                                {% endfor %}
+
+                        </table>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <b><h4>자동차 및 부품</h4></b>
+                    <br>
+                    <div class="table_div3">
+                        <div class="chart" id="bargraph3" >
+                            <script>
+                                var graphs = {{plot3|safe}};
+                                Plotly.plot('bargraph3',graphs,{});
+                            </script>
+                        </div>
+                        <table class="table">
+                        <caption>2020 하반기 '자동차 및 부품' 예측결과(신뢰구간 90%)</caption>
+                        <tr>
+                            <th>년도-월</th>
+                            <th>예측값 신뢰하한</th>
+                            <th>예측값</th>
+                            <th>예측값 신뢰상한</th>
+                        </tr>
+                                {% for table in df3 %}
+
+                            <tr>
+                            <td>{{ table['ds'] }}</td>
+                            <td>{{ table['yhat_lower']}}</td>
+                            <td>{{ table['yhat']}}</td>
+                            <td>{{ table['yhat_upper'] }}</td>
+                            </tr>
+                                            
+                                {% endfor %}
+
+                    </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+</body>
