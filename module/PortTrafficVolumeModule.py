@@ -11,7 +11,7 @@ class TrafficVolume:
 
     def test23():
         data = pd.read_csv(
-            '/home/ubuntu/myflask/static/data/car.csv')
+            'static/data/car.csv')
         df = pd.DataFrame({'ds': data['Month'], 'y': data['Monthly volume of car']})
         # 예측 model 생성
         m = Prophet(interval_width=0.90, changepoint_prior_scale=4)
@@ -39,7 +39,7 @@ class TrafficVolume:
 
     def test24():
         data = pd.read_csv(
-            '/home/ubuntu/myflask/static/data/chemical.csv')
+            'static/data/chemical.csv')
         df = pd.DataFrame(
             {'ds': data['Month'], 'y': data['Monthly volume of chemical product']})
         # 예측 model 생성
@@ -69,7 +69,7 @@ class TrafficVolume:
     def test25():
         # 원유 데이터 가져오기 & dataframe 생성
         data = pd.read_csv(
-            '/home/ubuntu/myflask/static/data/oil.csv')
+            'static/data/oil.csv')
         df = pd.DataFrame({'ds': data['Month'], 'y': data['Monthly volume of oil']})
         # 예측 model 생성
         m = Prophet(interval_width=0.90, changepoint_prior_scale=5,

@@ -14,8 +14,11 @@ class BerthingCapacity:
 
     def test22():
         dd = BerthingCapacity()
+        # data = pd.read_csv(
+        #     '/home/ubuntu/myflask/static/data/handling_capacity_test.csv', sep=',')
+
         data = pd.read_csv(
-            '/home/ubuntu/myflask/static/data/handling_capacity_test.csv', sep=',')
+            'static/data/handling_capacity_test.csv', sep=',')
 
         # 데이터프레임 만들기
         df = pd.DataFrame(

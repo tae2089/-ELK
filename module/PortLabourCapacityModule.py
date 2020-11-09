@@ -12,8 +12,10 @@ class LabourCapacity:
     def test22():
             # 데이터 불러오기
         dd = LabourCapacity()
+        # data = pd.read_csv(
+        #     '/home/ubuntu/myflask/static/data/berth_capacity_test.csv', sep=',')
         data = pd.read_csv(
-            '/home/ubuntu/myflask/static/data/berth_capacity_test.csv', sep=',')
+            'static/data/berth_capacity_test.csv', sep=',')
 
         # 데이터프레임 만들기
         df = pd.DataFrame(data, columns=['Number of vessel used/Space Capacity', 'Long wait vessel Ratio', 'Average berth Time'])

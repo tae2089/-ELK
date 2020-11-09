@@ -9,20 +9,35 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-   return render_template("intro.html")
+    return render_template("intro.html")
 
 @app.route('/test1')
 def hello1():
-   return render_template("RealTimeVessl.html")
+    return render_template("RealTimeVessl.html")
 
 @app.route('/test2')
 def hello2():
-   return render_template("RealTimePort.html")
+    return render_template("RealTimeVessl2.html")
+
 
 @app.route('/test3')
+def hello10():
+    # return render_template("RealTimePort.html")
+    return render_template("RealTimePort.html")
+
+
+@app.route('/test4')
+def hello11():
+    return render_template("RealTimePort2.html")
+
+
+
+
+
+@app.route('/test5')
 def hello3():
     script, div, df,c1,c2,c3,c4 = BerthingCapacity.test22()
-    #건드리면 안되는 거
+    #건드리면 안되는 거1
     print(c1)
     js_resources = INLINE.render_js()
     css_resources = INLINE.render_css()
@@ -37,11 +52,11 @@ def hello3():
         c4 = c4,
         js_resources=js_resources,
         css_resources=css_resources
-    )
+    )#
     return html
 
 
-@app.route('/test4')
+@app.route('/test6')
 def hello4():
         bar, df,c1,c2,c3,c4 = LabourCapacity.test22()
         #건드리면 안되는 거
@@ -61,7 +76,7 @@ def hello4():
         return html
 
 
-@app.route('/test5')
+@app.route('/test7')
 def hello5():
     bar,df1 = TrafficVolume.test25()
     bar2,df2 = TrafficVolume.test24()
@@ -82,12 +97,6 @@ def hello5():
     )
     return html
 
-@app.route('/test6')
-def test():
-   return render_template('intro1.html')
 
-
-
-   #return '<iframe src="http://3.35.113.255:5602/goto/6df42ddbceccea7038b68b52e2e0799b" height="600" width="800"></iframe>'
-#if __name__ == "__main__":
-#    app.run(host='0.0.0.0')
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')

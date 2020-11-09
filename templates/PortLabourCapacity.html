@@ -16,7 +16,7 @@
     <nav class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed"data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"aria-expanded="false">
-                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
@@ -24,33 +24,45 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <!-- /test1 -->
-                    <a href="/test1"  aria-haspopup="true" Saria-expanded="false">실시간 선박 입출항
+                <li class="dropdown">
+                    <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">실시간 선박 입출항
                         <span class="caret"></span>
                     </a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="/test1">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test2">접안능력 평가</a></li> -->
+                        <li><a href="/test1">선박 입출항 현황</a></li>
+                        <li><a href="/test2">선박 입출항 Vizual Chart</a></li>
+                    </ul>
                 </li>
-                <li >
-                    <!-- /test2 -->
-                    <a href="/test2"  aria-haspopup="true" Saria-expanded="false">실시간 부두 상황
+                
+                <li class="dropdown">
+                    <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">실시간 부두 상황
                         <span class="caret"></span>
                     </a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="/test3">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test4">접안능력 평가</a></li> -->
+                        <li><a href="/test3">부두 시설 상태</a></li>
+                        <li><a href="/test4">부두 정박 선박 모니터링</a></li>
+                    </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">부두 능력 평가
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- <li><a href="/test4">하역 능력 평가</a></li> -->
-                        <!-- <li><a href="/test5">접안능력 평가</a></li> -->
-                        <li><a href="/test3">하역 능력 평가</a></li>
-                        <li><a href="/test4">접안 능력 평가</a></li>
+                        <!-- <li><a href="/test5">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test6">접안능력 평가</a></li> -->
+                        <li><a href="/test5">하역 능력 평가</a></li>
+                        <li><a href="/test6">접안 능력 평가</a></li>
                     </ul>
                 </li>
-                
+
                 <li>
                     <!-- /test5 -->
-                    <a href="/test5"  aria-haspopup="true" Saria-expanded="false">주요 품목 물동량 예측
+                    <a href="/test7"  aria-haspopup="true" Saria-expanded="false">주요 품목 물동량 예측
                         <span class="caret"></span>
                     </a>
                 </li>
@@ -66,7 +78,7 @@
             <div class="col-md-15">
                 <div class="jumbotron">
                     <div class="container2">
-                        <b><h3>군집분석 결과 시각화 및 통계치</h3></b>
+                        <b><h2>군집분석 결과 시각화 및 통계치</h2></b>
                     </div>
                         
                     <div class="table_div">
@@ -99,30 +111,30 @@
                     </div>
                     <br><br><br><br><br><br>
                     <div class="container"></div>
-                    <h5>
+                    <h3>
                         사용변수: 1. '2019년 부두별 선박 이용수/부두 별 접안능력척수<br>
                         &emsp;&emsp;&emsp;&nbsp; 2. '2019년 부두 별 체선 선박수/(2019년 부두 별 선박
                         이용수/부두 별 접안능력척수)'<br> &emsp; &emsp;&emsp; 3. '2019년 부두 별 평균
                         접안시간'
-                    </h5>
+                    </h3>
                     <br> 
                     <div>
                         <div class= "div_t">
                             <span class="header_group_name">군집1: 체선 선박 비율이 높은 부두</span>
                             <span>
-                                <div class="test_header">Port_dockname</div>
+                                <div class="test_header" id = "cluster1_div">항명-부두명</div>
                                     {% for values in c1 %}
-                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                        <div class="test_body" id = "cluster1_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
                         <div class="div_t">
-                            <span class="header_group_name">군집2: 체선선박 비율, 접안능력 대비 선박이용률, 평균 접안시간이 모두 낮은 부두</span>
+                            <span class="header_group_name" >군집2: 체선선박 비율, 접안능력 대비 선박이용률, 평균 접안시간이 모두 낮은 부두</span>
                             
                             <span>
-                                <div class="test_header">Port_dockname</div>
+                                <div class="test_header" id="cluster2_div">항명-부두명</div>
                                     {% for values in c2 %}
-                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                        <div class="test_body"id="cluster2_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
@@ -132,18 +144,18 @@
                         <div class= "div_t">
                             <span class="header_group_name">군집3: 평균 접안시간이 긴 부두</span>
                             <span>
-                                <div class="test_header">Port_dockname</div>
+                                <div class="test_header" id = "cluster3_div">항명-부두명</div>
                                     {% for values in c3 %}
-                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                        <div class="test_body"id="cluster3_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
                         <div class="div_t">
                             <span class="header_group_name">군집4: 접안능력 대비 선박 이용률이 높은 부두</span>
                             <span>
-                                <div class="test_header">Port_dockname</div>
+                                <div class="test_header" id = "cluster4_div">항명-부두명</div>
                                     {% for values in c4 %}
-                                        <div class="test_body">{{ values['Port_dockname']}}</div>
+                                        <div class="test_body" id="cluster4_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>

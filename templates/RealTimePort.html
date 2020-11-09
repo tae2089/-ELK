@@ -14,7 +14,7 @@
     
 </style>
 <body>
-        <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed"data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"aria-expanded="false">
                 <span class="icon-bar"></span>
@@ -25,33 +25,45 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <!-- /test1 -->
-                    <a href="/test1"  aria-haspopup="true" Saria-expanded="false">실시간 선박 입출항
+                <li class="dropdown">
+                    <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">실시간 선박 입출항
                         <span class="caret"></span>
                     </a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="/test1">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test2">접안능력 평가</a></li> -->
+                        <li><a href="/test1">선박 입출항 현황</a></li>
+                        <li><a href="/test2">선박 입출항 Vizual Chart</a></li>
+                    </ul>
                 </li>
-                <li >
-                    <!-- /test2 -->
-                    <a href="/test2"  aria-haspopup="true" Saria-expanded="false">실시간 부두 상황
+                
+                <li class="dropdown">
+                    <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">실시간 부두 상황
                         <span class="caret"></span>
                     </a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="/test3">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test4">접안능력 평가</a></li> -->
+                        <li><a href="/test3">부두 시설 상태</a></li>
+                        <li><a href="/test4">부두 정박 선박 모니터링</a></li>
+                    </ul>
                 </li>
+
                 <li class="dropdown">
                     <a href="#" class="dropddown-toggle"data-toggle="dropdown" role="button" aria-haspopup="true" Saria-expanded="false">부두 능력 평가
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- <li><a href="/test4">하역 능력 평가</a></li> -->
-                        <!-- <li><a href="/test5">접안능력 평가</a></li> -->
-                        <li><a href="/test3">하역 능력 평가</a></li>
-                        <li><a href="/test4">접안 능력 평가</a></li>
+                        <!-- <li><a href="/test5">하역 능력 평가</a></li> -->
+                        <!-- <li><a href="/test6">접안능력 평가</a></li> -->
+                        <li><a href="/test5">하역 능력 평가</a></li>
+                        <li><a href="/test6">접안 능력 평가</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <!-- /test5 -->
-                    <a href="/test5"  aria-haspopup="true" Saria-expanded="false">주요 품목 물동량 예측
+                    <a href="/test7"  aria-haspopup="true" Saria-expanded="false">주요 품목 물동량 예측
                         <span class="caret"></span>
                     </a>
                 </li>
@@ -68,18 +80,10 @@
             <div class="jumbotron">
 
                 <div class="left">
-                    <b><h4>부두 시설 상태 </h4></b>
-                    <iframe src="http://3.35.113.255:5602/app/kibana#/dashboard/a24516a0-169f-11eb-b883-174210dad0cc?embed=true&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-1y%2Cto%3Anow))" height="400" width="1000"></iframe>
+                    <b><h2>부두 시설 상태 </h2></b>
+                    <iframe src="http://3.35.113.255:5602/app/kibana#/dashboard/a24516a0-169f-11eb-b883-174210dad0cc?embed=true&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-1y%2Cto%3Anow))" height="1120" width="1000"></iframe>
                 </div>
 
-                <div class="left">
-                    <b><h4>부두 정박 선박 모니터링</h4></b>
-                    <iframe src="http://3.35.113.255:5602/app/kibana#/dashboard/55570a20-16a3-11eb-b883-174210dad0cc?embed=true&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-1y%2Cto%3Anow))" height="400" width="1000"></iframe>
-                </div>
-
-                <br> <br> <br> <br> <br> <br> <br>
-                <br> <br> <br> <br> <br> <br> <br>
-                <br> <br>
             </div>
             </div>
         </div>

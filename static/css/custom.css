@@ -27,15 +27,26 @@ h1 {
 
     .test_header {
         color: #168;
-        background: #f0f6f9;
-        border: 1px solid black;
         width: 500px;
         text-align: center;
         font-weight: 1000;
         font-size: 20px;
-
+        border: 1px solid #444444;
+        padding: 10px;
+        background-color: #bbdefb;
         /* display: inline; */
     }
+        .test_body {
+            border: 1px solid #444444;
+            width: 500px;
+            text-align: center;
+            padding: 10px;
+            background-color: #e3f2fd;
+            /* display: inline; */
+        }
+
+
+
 
     .tea {
         border: 1px solid black;
@@ -43,12 +54,7 @@ h1 {
         height: 500px;
     }
 
-    .test_body {
-border: 1px solid black;
-        width: 500px;
-        text-align: center;
-        /* display: inline; */
-    }
+
 
     .table {
         width: 100px;
@@ -110,3 +116,8 @@ border: 1px solid black;
             padding-right: 30px;
             padding-bottom: 20px;
         }
+
+    .header_group_name{
+        font-size: 18px;
+        text-align: center;
+    }

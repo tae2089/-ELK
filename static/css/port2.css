@@ -1,6 +1,7 @@
 body {
     background-image: url("../img/water.jpg");
     background-color: #bcdbf5;
+    
 }
 
 .jumbotron {
@@ -26,7 +27,7 @@ div.right {
 .menu {
     display: inline-block;
     zoom: 1;
-    . display: inline;
+    display: inline;
 }
 
 .table {
