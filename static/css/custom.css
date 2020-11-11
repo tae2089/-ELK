@@ -42,6 +42,16 @@ h1 {
             text-align: center;
             padding: 10px;
             background-color: #e3f2fd;
+            
+            /* display: inline; */
+        }
+        .test_body1{
+            border: 1px solid #444444;
+            width: 500px;
+            text-align: center;
+            padding: 10px;
+            background-color: #e3f2fd;
+            color: red;
             /* display: inline; */
         }
 

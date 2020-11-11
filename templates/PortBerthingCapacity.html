@@ -81,7 +81,7 @@
             <div class="col-md-15">
                 <div class="jumbotron">
                     <div class="container2">
-                        <b><h3>군집분석 결과 시각화 및 통계치</h3></b>
+                        <b><h3>하역능력 군집분석 결과 Report</h3></b>
                     </div>
                         
                     <div class="table_div">
@@ -96,7 +96,7 @@
                             <!-- 이 부분에 데이터 for문 돌리기 -->
                                 {% for values in df1 %}
                             <tr>
-                            <td>{{ values['number']}}</td>
+                            <td>{{ values['number']+1}}</td>
                             <td>{{ values['Cargo Handling Capacity']}}</td>
                             <td>{{ values['Load/Capacity']}}</td>
                             </tr>
@@ -107,24 +107,29 @@
 
                     <div class="container"></div>
                     <h3>
-                        사용변수: 1. '2019년 부두별 선박 이용수/부두 별 접안능력척수<br>
-                        &emsp;&emsp;&emsp;&nbsp; 2. '2019년 부두 별 체선 선박수/(2019년 부두 별 선박
-                        이용수/부두 별 접안능력척수)'<br> &emsp; &emsp;&emsp; 3. '2019년 부두 별 평균
-                        접안시간'
+                        사용변수: 사용변수 x축: 부두별 하역능력<br>
+                        &emsp;&emsp;&emsp;&nbsp; y축: 부두별 하역능력 대비 화물처리량
                     </h3>
                     <br> 
                     <div>
                         <div class= "div_t">
-                            <span class="header_group_name"><h3>군집1: 화물 처리량 대비 하역능력이 매우 큰 부두</h3></span>
+                            <span class="header_group_name">
+                                <!-- <h3>군집1: 화물 처리량 대비 하역능력이 매우 큰 부두</h3> -->
+                                <h3>하역 능력이 낭비되고 있는 부두</h3>
+                            </span>
                             <span>
                                 <div class="test_header">항명-부두명</div>
                                     {% for values in c1 %}
-                                        <div class="test_body"><h4>{{ values['Port_dockname']}}</h4></div>
+                                        <div class="test_body1"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
+
                         <div class="div_t">
-                            <span class="header_group_name"><h3>군집2: 하역능력 대비 화물 처리량이 큰 부두</h3></span>
+                            <span class="header_group_name">
+                            <h3>하역 능력이 부족한 부두</h3>
+                                <!-- <h3>군집2: 하역능력 대비 화물 처리량이 큰 부두</h3> -->
+                            </span>
                             <span>
                                 <div class="test_header">항명-부두명</div>
                                     {% for values in c2 %}
@@ -133,23 +138,32 @@
                             </span>
                         </div>
                     </div>
+                    
                     <br>
+                    
                     <div>
                         <div class= "div_t">
-                            <span class="header_group_name"><h3>군집3: 하역능력, 화물 처리량이 작고 비슷한 부두</h3></span>
-                            <span>
+                            <span class="header_group_name">
+                                <!-- <h3>군집3: 하역능력, 화물 처리량이 작고 비슷한 부두</h3> -->
+                            <h3>하역 능력 이상 없는 부두</h3>
+                            </span>
+                                <span>
                                 <div class="test_header">항명-부두명</div>
                                     {% for values in c3 %}
-                                        <div class="test_body"><h4>{{ values['Port_dockname']}}</h4></div>
+                                        <div class="test_body1"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
+
                         <div class="div_t">
-                            <span class="header_group_name"><h3>군집4: 화물 처리량 대비 하역능력이 매우 큰 부두</h3></span>
+                            <span class="header_group_name">
+                            <h3>하역 능력이 많이 부족한 부두</h3>
+                                <!-- <h3>군집4: 화물 처리량 대비 하역능력이 매우 큰 부두</h3> -->
+                            </span>
                             <span>
                                 <div class="test_header">항명-부두명</div>
                                     {% for values in c4 %}
-                                        <div class="test_body"><h4>{{ values['Port_dockname']}}</h4></div>
+                                        <div class="test_body1"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>

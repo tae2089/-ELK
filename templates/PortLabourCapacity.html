@@ -78,7 +78,7 @@
             <div class="col-md-15">
                 <div class="jumbotron">
                     <div class="container2">
-                        <b><h2>군집분석 결과 시각화 및 통계치</h2></b>
+                        <b><h2>접안능력 군집분석 결과 Report</h2></b>
                     </div>
                         
                     <div class="table_div">
@@ -112,24 +112,29 @@
                     <br><br><br><br><br><br>
                     <div class="container"></div>
                     <h3>
-                        사용변수: 1. '2019년 부두별 선박 이용수/부두 별 접안능력척수<br>
-                        &emsp;&emsp;&emsp;&nbsp; 2. '2019년 부두 별 체선 선박수/(2019년 부두 별 선박
-                        이용수/부두 별 접안능력척수)'<br> &emsp; &emsp;&emsp; 3. '2019년 부두 별 평균
-                        접안시간'
+                        사용변수 x축: 부두별 접안 척수 대비 선박 이용 수<br>
+                        &emsp;&emsp;&emsp;&nbsp; y축: 부두별 체선선박 비율 <br>
+                        &emsp;&emsp;&emsp;&nbsp; z축: 부두별 선박의 평균 접안 시간
                     </h3>
                     <br> 
                     <div>
                         <div class= "div_t">
-                            <span class="header_group_name">군집1: 체선 선박 비율이 높은 부두</span>
+                            <span class="header_group_name"> 
+                                <!-- 체선 선박 비율이 높은 부두  -->
+                                체선 선박 비율이 높은 부두
+                            </span>
                             <span>
                                 <div class="test_header" id = "cluster1_div">항명-부두명</div>
                                     {% for values in c1 %}
-                                        <div class="test_body" id = "cluster1_div2"><h4>{{ values['Port_dockname']}}</h4></div>
+                                        <div class="test_body1 " id = "cluster1_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
                         <div class="div_t">
-                            <span class="header_group_name" >군집2: 체선선박 비율, 접안능력 대비 선박이용률, 평균 접안시간이 모두 낮은 부두</span>
+                            <span class="header_group_name" > 
+                                <!-- 체선선박 비율, 접안능력 대비 선박이용률, 평균 접안시간이 모두 낮은 부두 -->
+                                접안능력 이상 없는 부두
+                            </span>
                             
                             <span>
                                 <div class="test_header" id="cluster2_div">항명-부두명</div>
@@ -140,22 +145,27 @@
                         </div>
                     </div>
                     <br>
+
                     <div>
                         <div class= "div_t">
-                            <span class="header_group_name">군집3: 평균 접안시간이 긴 부두</span>
+                            <span class="header_group_name"> 
+                            선박의 평균 접안 시간이 긴 부두
+                                <!-- 평균 접안시간이 긴 부두 -->
+                            </span>
                             <span>
                                 <div class="test_header" id = "cluster3_div">항명-부두명</div>
                                     {% for values in c3 %}
-                                        <div class="test_body"id="cluster3_div2"><h4>{{ values['Port_dockname']}}</h4></div>
+                                        <div class="test_body1"id="cluster3_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
+
                         <div class="div_t">
-                            <span class="header_group_name">군집4: 접안능력 대비 선박 이용률이 높은 부두</span>
+                            <span class="header_group_name"> 선박 이용률이 높은 부두</span>
                             <span>
                                 <div class="test_header" id = "cluster4_div">항명-부두명</div>
                                     {% for values in c4 %}
-                                        <div class="test_body" id="cluster4_div2"><h4>{{ values['Port_dockname']}}</h4></div>
+                                        <div class="test_body1" id="cluster4_div2"><h4>{{ values['Port_dockname']}}</h4></div>
                                     {% endfor %}
                             </span>
                         </div>
